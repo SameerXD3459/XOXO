@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="helloApp">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Hello World</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="HelloController">
+
+  <h1>Hello {{ name | uppercase }}</h1>
+
+  <p>Enter your name: <input type="text" ng-model="name"></p>
+
+  <p>Your name reversed: {{ name.split('').reverse().join('') }}</p>
+
+  <p>Length of your name: {{ name.length }}</p>
+
+  <p>Today's date: {{ today | date: 'fullDate' }}</p>
+
+  <script>
+    angular.module('helloApp', [])
+      .controller('HelloController', function($scope) {
+        $scope.name = 'World'
+        $scope.today = new Date()
+      })
+  </script>
+
+</body>
+</html>

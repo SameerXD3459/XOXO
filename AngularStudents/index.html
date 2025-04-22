@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Record App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 5px 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body ng-controller="StudentController">
+
+  <h1>Student Record Management</h1>
+
+  <form ng-submit="addStudent()">
+    <input type="text" ng-model="newStudent.name" placeholder="Student Name" required>
+    <input type="number" ng-model="newStudent.age" placeholder="Age" required>
+    <input type="text" ng-model="newStudent.branch" placeholder="Branch" required>
+    <button type="submit">Add Student</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Branch</th>
+      <th>Action</th>
+    </tr>
+    <tr ng-repeat="student in students track by $index">
+      <td>{{$index + 1}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td>{{student.branch}}</td>
+      <td><button ng-click="removeStudent($index)">Delete</button></td>
+    </tr>
+  </table>
+
+</body>
+</html>
