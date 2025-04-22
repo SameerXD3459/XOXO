@@ -7,7 +7,7 @@ git clone https://github.com/SameerXD3459/XOXO.git
 
 clear
 
-ls
+dir
 
 cd to_your_experiment 
 
